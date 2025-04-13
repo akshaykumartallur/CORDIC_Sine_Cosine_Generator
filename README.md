@@ -283,7 +283,7 @@ endmodule
 <img src="https://github.com/akshaykumartallur/CORDIC_Sine_Cosine_Generator/blob/main/Cordic_Simulation_Xilinx.png" alt="Simulation Results xilinx">
 <br>
 <h2>FPGA Implementation</h2>
-<p><b>FGPA used:</b> De-10 lite 10M50DAF484C7G.</p>
+<p><b>FGPA Used:</b> De-10 lite 10M50DAF484C7G.</p>
 <h3>HDL Code</h3>
 
 ```hdl
@@ -292,12 +292,12 @@ endmodule
 
 <h3>Results</h3>
 
-<span><img src="https://github.com/akshaykumartallur/CORDIC_Sine_Cosine_Generator/blob/main/FPGA%20Results/sine35.jpg" alt="sine35" width=45%></span>
-<span><img src="https://github.com/akshaykumartallur/CORDIC_Sine_Cosine_Generator/blob/main/FPGA%20Results/cos35.jpg" alt="cos35" width=45%></span>
-<span><img src="https://github.com/akshaykumartallur/CORDIC_Sine_Cosine_Generator/blob/main/FPGA%20Results/cos50.jpg" alt="cos50" width=45%></span>
-<span><img src="https://github.com/akshaykumartallur/CORDIC_Sine_Cosine_Generator/blob/main/FPGA%20Results/sineMinus50.jpg" alt="sineMinus50" width=45%></span>
-<span><img src="https://github.com/akshaykumartallur/CORDIC_Sine_Cosine_Generator/blob/main/FPGA%20Results/sineMinus45.jpg" alt="sineMinus45" width=45%></span>
-<span><img src="https://github.com/akshaykumartallur/CORDIC_Sine_Cosine_Generator/blob/main/FPGA%20Results/cos135.jpg" alt="cos135" width=45%></span>
+<span><img src="https://github.com/akshaykumartallur/CORDIC_Sine_Cosine_Generator/blob/main/FPGA%20Results/sin(35).jpg" alt="sine35" width=45%></span>
+<span><img src="https://github.com/akshaykumartallur/CORDIC_Sine_Cosine_Generator/blob/main/FPGA%20Results/cos(35).jpg" alt="cos35" width=45%></span>
+<span><img src="https://github.com/akshaykumartallur/CORDIC_Sine_Cosine_Generator/blob/main/FPGA%20Results/cos(50).jpg" alt="cos50" width=45%></span>
+<span><img src="https://github.com/akshaykumartallur/CORDIC_Sine_Cosine_Generator/blob/main/FPGA%20Results/sin(-50).jpg" alt="sineMinus50" width=45%></span>
+<span><img src="https://github.com/akshaykumartallur/CORDIC_Sine_Cosine_Generator/blob/main/FPGA%20Results/sin(-45).jpg" alt="sineMinus45" width=45%></span>
+<span><img src="https://github.com/akshaykumartallur/CORDIC_Sine_Cosine_Generator/blob/main/FPGA%20Results/cos(135).jpg" alt="cos135" width=45%></span>
 
 </body>
 </html>
