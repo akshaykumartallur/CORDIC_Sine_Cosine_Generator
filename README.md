@@ -19,6 +19,96 @@
     <li><b>ESP32 Microcontroller</b> – C implementation with analog output on an oscilloscope via DAC.</li>
 </ol>
 The CORDIC algorithm is chosen for its <b>hardware efficiency</b>, eliminating the need for multipliers and making it ideal for <b>FPGA and embedded systems.</b></p>
+<h2>Introduction</h2>
+  <p>The CORDIC algorithm is an iterative method that uses only shift, add, and subtract operations to compute functions. This makes it ideal for hardware implementations, especially where hardware multipliers are expensive or unavailable.
+
+The algorithm works by rotating a vector in a plane by a given angle using a series of predefined micro-rotations.</p>
+  <h3>CORDIC Algorithm (COordinate Rotation DIgital Computer)</h3>
+
+  <p>The CORDIC algorithm is an iterative, hardware-friendly technique for calculating various mathematical functions such as:</p>
+  <ul>
+    <li>Trigonometric functions (sine, cosine)</li>
+    <li>Hyperbolic functions</li>
+    <li>Multiplication and division</li>
+    <li>Exponential and logarithmic functions</li>
+    <li>Square roots</li>
+  </ul>
+
+  <h3>Core Idea Behind CORDIC</h3>
+  <p>CORDIC is based on vector rotation. The goal is to rotate a vector <code>(x, y)</code> by an angle <code>θ</code> using only shift and add operations.</p>
+
+  <h4>Vector Rotation Formula:</h4>
+  <pre>
+x' = x * cos(θ) - y * sin(θ)
+y' = x * sin(θ) + y * cos(θ)
+  </pre>
+
+  <p>CORDIC breaks this into a series of micro-rotations with fixed angles such that <code>tan(θ) = 2<sup>-i</sup></code>.</p>
+
+  <h3>CORDIC Iterative Equations</h3>
+  <pre>
+x_{i+1} = x_i - d_i * y_i * 2^-i
+y_{i+1} = y_i + d_i * x_i * 2^-i
+z_{i+1} = z_i - d_i * atan(2^-i)
+  </pre>
+
+  <p>Where:</p>
+  <ul>
+    <li><code>d_i</code> is the rotation direction: +1 or -1 depending on <code>z_i</code></li>
+    <li><code>atan(2<sup>-i</sup>)</code> are precomputed values</li>
+    <li>Shifts (<code>2^-i</code>) are implemented using bit-shifts</li>
+  </ul>
+
+  <h3>Convergence Range</h3>
+  <p>CORDIC in rotation mode converges for <code>θ</code> in the range ±99.88° (±1.743 radians). Angle range is extended using quadrant corrections.</p>
+
+  <h3>CORDIC Scaling Factor</h3>
+  <p>After n iterations, the result is scaled by a constant factor <code>K_n</code>:</p>
+  <pre>
+K_n = ∏ (1 / √(1 + 2^(-2i)))  for i = 0 to n-1
+≈ 0.607253 for large n
+  </pre>
+
+  <p>You must compensate for this scaling factor either before or after computation.</p>
+
+  <h2>Computing Sine and Cosine</h2>
+  <ul>
+    <li>Initialize: <code>x₀ = K</code>, <code>y₀ = 0</code>, <code>z₀ = θ</code></li>
+    <li>After n iterations:
+      <ul>
+        <li><code>x_n ≈ K * cos(θ)</code></li>
+        <li><code>y_n ≈ K * sin(θ)</code></li>
+      </ul>
+    </li>
+  </ul>
+
+  <h2>Advantages of CORDIC</h2>
+  <ul>
+    <li>Only shift and add operations (no multiplication/division)</li>
+    <li>Efficient in hardware (FPGA, ASIC, microcontrollers)</li>
+    <li>Great for fixed-point arithmetic</li>
+  </ul>
+
+  <h2>Limitations</h2>
+  <ul>
+    <li>Slower convergence compared to lookup tables or series expansion</li>
+    <li>Needs pre-scaling or post-scaling</li>
+    <li>Limited direct angle range</li>
+  </ul>
+
+  <h2>Applications</h2>
+  <ul>
+    <li>Scientific calculators</li>
+    <li>FPGA-based signal processing</li>
+    <li>Real-time embedded systems</li>
+    <li>Digital communication systems</li>
+    <li>Robotics and control systems</li>
+  </ul>
+  <h3>How Does CORDIC Rotation Work?</h3>
+
+https://github.com/user-attachments/assets/3234d375-1aa5-4ce9-aec5-aba40471c3c3
+
+  
 <h2>Simulation using Xilinx Vivado</h2>
 <h3>Verilog code</h3>
 
