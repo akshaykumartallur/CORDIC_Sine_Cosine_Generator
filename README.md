@@ -110,8 +110,7 @@ https://github.com/user-attachments/assets/3234d375-1aa5-4ce9-aec5-aba40471c3c3
 
   
 <h2>Simulation using Xilinx Vivado</h2>
-<details>
-  <summary><h3>Verilog Code</h3></summary>
+<h3>Verilog Code</h3>
   
   ```verilog
 module cordic_core (
@@ -370,7 +369,7 @@ module cordic_core_tb_2;
 
 endmodule
 ```
-</details>
+
 <h3>Simulation Results</h3>
 <img src="https://github.com/akshaykumartallur/CORDIC_Sine_Cosine_Generator/blob/main/Cordic_Simulation_Xilinx.png" alt="Simulation Results xilinx">
 <br>
